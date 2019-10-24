@@ -1,4 +1,4 @@
-Web App using WASM
+Web App using C++ compiled to WASM
 =========================================================
 
 
@@ -14,3 +14,14 @@ cmake .. -DCMAKE_TOOLCHAIN_FILE=/usr/local/emsdk/emscripten/1.38.29/cmake/Module
 make -j
 cd ..
 ```
+
+Host
+---------------------------------------------------------
+
+For example,
+
+```
+python -m SimpleHTTPServer
+```
+
+And then open `localhost:8000`.
