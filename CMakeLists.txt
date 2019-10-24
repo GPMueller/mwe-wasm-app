@@ -8,6 +8,21 @@ project(webapp)
 ######################################################################
 
 
+#############################################
+### Set a default build type in case none is passed
+if(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
+    message(STATUS ">> backend: Setting build type to 'Release' as none was specified.")
+    set(CMAKE_BUILD_TYPE Release CACHE STRING "Choose the type of build." FORCE)
+    # Set the possible values of build type for cmake-gui
+    set_property(CACHE CMAKE_BUILD_TYPE PROPERTY STRINGS "Debug" "Release" "MinSizeRel" "RelWithDebInfo")
+elseif(CMAKE_BUILD_TYPE)
+    message(STATUS ">> backend:  Did not need to set build type, using: ${CMAKE_BUILD_TYPE}")
+else()
+    message(STATUS ">> backend:  Did not need to set build type. Configuration types: ${CMAKE_CONFIGURATION_TYPES}")
+endif()
+#############################################
+
+
 ######## General settings ############################################
 # include_directories(${PROJECT_SOURCE_DIR}/include )
 ######################################################################
@@ -41,7 +56,7 @@ add_executable( backend
 set_target_properties( backend PROPERTIES
     OUTPUT_NAME "libBackend"
     RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/js
-    CXX_STANDARD 11
+    CXX_STANDARD 17
     CXX_STANDARD_REQUIRED ON
     CXX_EXTENSIONS OFF )
 
