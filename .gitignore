@@ -1,7 +1,4 @@
 build/*
-js/libBackend.js
-js/libBackend.wasm
-js/libBackend.wast
 
 # Created by https://www.gitignore.io/api/c,c++,osx,cmake,linux,windows
 # Edit at https://www.gitignore.io/?templates=c,c++,osx,cmake,linux,windows
